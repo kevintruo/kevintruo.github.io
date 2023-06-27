@@ -1,0 +1,30 @@
+import * as React from "react";
+
+export interface MouseTrackingProps {
+  xAxis?: number;
+  yAxis?: number;
+}
+
+export const mouseTrackingContext = React.createContext<
+  [MouseTrackingProps, React.Dispatch<React.SetStateAction<MouseTrackingProps>>] | undefined
+>(undefined);
+
+export default function MouseTrackingProvider({ children }: any) {
+  const [mousePos, setMousePos] = React.useState<MouseTrackingProps>({});
+
+  React.useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ xAxis: e.clientX, yAxis: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <mouseTrackingContext.Provider value={[mousePos, setMousePos]}>
+      {children}
+    </mouseTrackingContext.Provider>
+  );
+}
