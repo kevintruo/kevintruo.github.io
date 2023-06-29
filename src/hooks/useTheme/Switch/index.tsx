@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ThemeContext, ThemeEnum } from "../Provider";
-import { sleep } from "./utils";
+import { sleep } from "../../../utils/sleep";
 
 export default function Switch() {
   const themeContext = React.useContext(ThemeContext);
