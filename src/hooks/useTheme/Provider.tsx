@@ -14,7 +14,9 @@ export const ThemeContext = React.createContext<
 >(undefined);
 
 export default function ThemeProvider({ children }: any) {
-  const [theme, setTheme] = React.useState<ThemeProps>({ mode: localStorage.theme });
+  const [theme, setTheme] = React.useState<ThemeProps>({
+    mode: localStorage.theme ?? ThemeEnum.DARK,
+  });
   const colorTheme = theme.mode === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK;
 
   React.useEffect(() => {
