@@ -2,6 +2,8 @@ import MouseTrailingEffect from "./components/MouseTrailingEffect";
 import AnimatedTypography from "./components/AnimatedTypography";
 
 function App() {
+  const supportsTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   return (
     <div className='flex h-screen flex-col dark:bg-black dark:text-white'>
       <AnimatedTypography
@@ -9,7 +11,7 @@ function App() {
         className='text-3xl font-bold m-auto text-black dark:text-white'
         repeat={true}
       />
-      <MouseTrailingEffect />
+      {!supportsTouch && <MouseTrailingEffect />}
     </div>
   );
 }
