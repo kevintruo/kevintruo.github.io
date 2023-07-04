@@ -1,6 +1,6 @@
 import * as React from "react";
 import useMouseTracking from "../../hooks/useMouseTracking";
-
+import CircleDiv from "./CircleDiv";
 interface CircleProps {
   xAxis: number;
   yAxis: number;
@@ -41,7 +41,8 @@ export default function MouseTrailingEffect() {
   }, [xAxis, yAxis]);
 
   return (
-    <div className='cursor' style={{ left: yAxis, top: xAxis }}>
+    <div
+      className={`pointer-events-none fixed block mix-blend-difference top-0 left-0 z-[2147483647]`}>
       {circles.map((circle, index) => {
         return !xAxis || !yAxis ? null : (
           <CircleDiv key={index} xAxis={circle.xAxis} yAxis={circle.yAxis} scale={circle.scale} />
@@ -50,22 +51,3 @@ export default function MouseTrailingEffect() {
     </div>
   );
 }
-
-interface CircleDivProps {
-  xAxis: number;
-  yAxis: number;
-  scale: number;
-}
-
-const CircleDiv = ({ xAxis, yAxis, scale }: CircleDivProps) => {
-  return (
-    <div
-      className={`w-8 h-8 rounded-full bg-black dark:bg-white absolute scale-[${scale}]`}
-      style={{
-        top: yAxis,
-        left: xAxis,
-        transform: `scale(${scale})`,
-      }}
-    />
-  );
-};
