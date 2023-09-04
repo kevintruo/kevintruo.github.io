@@ -18,7 +18,7 @@ export default function Switch() {
 
   return (
     <div
-      className='flex items-center justify-center absolute top-0 right-0 m-1 p-1 rounded-full'
+      className='flex items-center justify-center absolute top-5 right-5 m-1 p-1 rounded-full'
       onClick={async () => {
         setFade(true);
         await sleep(500).then(() => {
