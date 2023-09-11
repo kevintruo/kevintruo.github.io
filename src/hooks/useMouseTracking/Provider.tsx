@@ -14,7 +14,6 @@ export default function MouseTrackingProvider({ children }: any) {
 
   React.useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      console.log(e.clientX, e.clientY);
       setMousePos({ xAxis: e.clientX, yAxis: e.clientY });
     };
 
