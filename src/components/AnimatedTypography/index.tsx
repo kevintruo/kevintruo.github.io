@@ -28,28 +28,25 @@ export default function AnimatedTypography({
   const [display, setDisplay] = React.useState<string>("");
 
   React.useEffect(() => {
-    const controller = new AbortController();
-
     async function handleTypingAnimation() {
       setDisplay("");
       for (let [index, text] of textArr.entries()) {
         const letters = text.split("");
         for (let letter of letters) {
-          await sleep(speed, controller).then(() => {
+          await sleep(speed).then(() => {
             setDisplay((s) => s + letter);
           });
         }
 
-        await sleep(betweenDelay, controller);
+        await sleep(betweenDelay);
 
         if (index === textArr.length - 1) {
           return;
         }
 
-        //TODO: Comeback to create
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (let _ in letters.reverse()) {
-          await sleep(speed, controller).then(() => {
+          await sleep(speed).then(() => {
             setDisplay((s) => s.substring(0, s.length - 1));
           });
         }
@@ -57,14 +54,12 @@ export default function AnimatedTypography({
     }
 
     handleTypingAnimation();
-
-    return () => controller.abort();
   }, [textArr, speed, betweenDelay]);
 
   return (
-    <p className={className + " relative pr-2 caret-current"}>
+    <p className={className + " pr-2 caret-current"}>
       {display}
-      <TypingCursor className={display && "absolute bottom-0.5 -right-1"} />
+      <TypingCursor className={display && "relative bottom-0.5 -right-1"} />
       <span className='' />
     </p>
   );

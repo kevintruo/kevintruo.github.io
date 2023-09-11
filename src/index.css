@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .styled-scrollbar-track::-webkit-scrollbar-track {
+    @apply bg-white m-[3px] rounded-[10px];
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  .styled-scrollbar::-webkit-scrollbar {
+    @apply w-3 bg-white;
+  }
+  .styled-scrollbar-track-dark::-webkit-scrollbar-track {
+    @apply bg-black m-[3px] rounded-[10px];
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  .styled-scrollbar-dark::-webkit-scrollbar {
+    @apply w-3 bg-black;
+  }
+  .styled-scrollbar-thumb::-webkit-scrollbar-thumb {
+    @apply bg-[#555] rounded-[10px];
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+}
 body {
   width: 100vw;
   height: 100vh;
