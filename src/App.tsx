@@ -1,4 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
+import MouseTrailingEffect from "./components/MouseTrailingEffect";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         speed={1}
         className='text-3xl font-bold m-auto dark:text-white'
       />
+      <MouseTrailingEffect />
     </div>
   );
 }
