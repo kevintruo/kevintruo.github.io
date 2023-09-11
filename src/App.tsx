@@ -1,16 +1,22 @@
+import LandingPage from "./components/LandingPage";
 import MouseTrailingEffect from "./components/MouseTrailingEffect";
-import AnimatedTypography from "./components/AnimatedTypography";
+import LeftPanel from "./components/Panels/LeftPanel";
+import RightPanel from "./components/Panels/RightPanel";
 
 function App() {
   const supportsTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   return (
-    <div className='flex h-screen flex-col dark:bg-black dark:text-white'>
-      <AnimatedTypography
-        textArr={["COMING SOON ...", "SERIOUSLY, IT'S COMING ..."]}
-        className='text-3xl font-bold m-auto text-black dark:text-white'
-        repeat={true}
-      />
+    <div className='flex h-screen w-screen flex-row bg-white text-black dark:bg-black dark:text-white'>
+      {!supportsTouch && <LeftPanel />}
+      <div className='grow flex flex-row'>
+        <div className='flex-none w-64 h-screen' />
+        <div className='flex flex-col w-full'>
+          <LandingPage />
+        </div>
+        <div className='flex-none w-64 h-screen' />
+      </div>
+      {!supportsTouch && <RightPanel />}
       {!supportsTouch && <MouseTrailingEffect />}
     </div>
   );

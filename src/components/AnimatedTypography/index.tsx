@@ -1,7 +1,7 @@
 import * as React from "react";
+import { DefaultProps } from "../../models/defaultProps";
 import { sleep } from "../../utils/sleep";
 import TypingCursor from "../TypingCursor";
-import { DefaultProps } from "../../models/defaultProps";
 
 interface Props extends DefaultProps {
   textArr: string[];
@@ -62,12 +62,10 @@ export default function AnimatedTypography({
   }, [textArr, speed, betweenDelay]);
 
   return (
-    <>
-      <p className={className + " relative pr-2 caret-current"}>
-        {display}
-        <TypingCursor className={display && "absolute bottom-0.5 right-0"} />
-        <span className='' />
-      </p>
-    </>
+    <p className={className + " relative pr-2 caret-current"}>
+      {display}
+      <TypingCursor className={display && "absolute bottom-0.5 -right-1"} />
+      <span className='' />
+    </p>
   );
 }

@@ -17,9 +17,17 @@ export default function MouseTrackingProvider({ children }: any) {
       setMousePos({ xAxis: e.clientX, yAxis: e.clientY });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseLeave = (e: MouseEvent) => {
+      setMousePos({ xAxis: undefined, yAxis: undefined });
+    };
 
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseLeave);
+    };
   }, []);
 
   return (
