@@ -6,7 +6,7 @@ export default function Socials() {
     <ul className='flex flex-col items-center gap-5'>
       <li>
         <a
-          href='https://www.linkedin.com/in/kevin-truong-b4a290195/'
+          href='https://www.linkedin.com/in/kevin-truo/'
           target='_blank'
           rel='noreferrer'
           title='Go to my LinkedIn'>
