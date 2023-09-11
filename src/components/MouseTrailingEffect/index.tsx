@@ -30,8 +30,8 @@ export default function MouseTrailingEffect() {
           circle.y = y;
           circle.scale = (prevCircles.length - index) / prevCircles.length;
           const nextCircle = prevCircles[index + 1] || prevCircles[0];
-          x += (nextCircle.x - x) * 0.1;
-          y += (nextCircle.y - y) * 0.1;
+          x += (nextCircle.x - x) * 0.2;
+          y += (nextCircle.y - y) * 0.2;
         });
         return [...prevCircles];
       });
