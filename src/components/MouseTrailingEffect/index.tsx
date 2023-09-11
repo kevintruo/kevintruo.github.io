@@ -12,9 +12,9 @@ interface CircleProps {
 export default function MouseTrailingEffect() {
   const { xAxis, yAxis } = useMouseTracking();
   let arr = [];
-  const LEN = 25;
+  const LEN = 100;
   for (let i = 0; i < LEN; i++) {
-    arr.push({ xAxis: 0, yAxis: 0, x: 0, y: 0, scale: 1 });
+    arr.push({ xAxis: xAxis ?? 0, yAxis: xAxis ?? 0, x: xAxis ?? 0, y: xAxis ?? 0, scale: 1 });
   }
   const [circles, setCircles] = React.useState<CircleProps[]>(arr);
 
@@ -35,8 +35,6 @@ export default function MouseTrailingEffect() {
         });
         return [...prevCircles];
       });
-
-      requestAnimationFrame(animateCircles);
     }
 
     animateCircles();
