@@ -1,23 +1,26 @@
 import LandingPage from "./components/LandingPage";
 import MouseTrailingEffect from "./components/MouseTrailingEffect";
-import LeftPanel from "./components/Panels/LeftPanel";
-import RightPanel from "./components/Panels/RightPanel";
+import Section from "./components/Section";
+import Socials from "./components/Socials";
 
 function App() {
   const supportsTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   return (
-    <div className='flex h-screen w-screen flex-row bg-white text-black dark:bg-black dark:text-white'>
-      {!supportsTouch && <LeftPanel />}
-      <div className='grow flex flex-row'>
-        <div className='flex-none w-64 h-screen' />
-        <div className='flex flex-col w-full'>
-          <LandingPage />
-        </div>
-        <div className='flex-none w-64 h-screen' />
+    <div className='snap-y snap-mandatory h-screen w-screen mx:auto overflow-scroll'>
+      <div className='absolute bottom-10 left-5'>
+        <Socials />
       </div>
-      {!supportsTouch && <RightPanel />}
       {!supportsTouch && <MouseTrailingEffect />}
+      <Section>
+        <LandingPage />
+      </Section>
+      <Section>
+        <h1>Page Two</h1>
+      </Section>
+      <Section>
+        <h1>Page Three</h1>
+      </Section>
     </div>
   );
 }

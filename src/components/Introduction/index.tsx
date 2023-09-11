@@ -1,4 +1,4 @@
-import ElementWrapper from "../ElementWrapper";
+import ElementWrapper from "../Section";
 
 export default function Introduction() {
   return (
