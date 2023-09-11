@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ThemeContext, ThemeEnum } from "../Provider";
-import { sleep } from "../../../utils/sleep";
 import Moon from "../../../static/svg/Moon";
 import Sun from "../../../static/svg/Sun";
+import { sleep } from "../../../utils/sleep";
+import { ThemeContext, ThemeEnum } from "../Provider";
 
 export default function Switch() {
   const themeContext = React.useContext(ThemeContext);

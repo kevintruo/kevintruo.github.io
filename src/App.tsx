@@ -1,5 +1,5 @@
-import MouseTrailingEffect from "./components/MouseTrailingEffect";
 import AnimatedTypography from "./components/AnimatedTypography";
+import MouseTrailingEffect from "./components/MouseTrailingEffect";
 
 function App() {
   const supportsTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
