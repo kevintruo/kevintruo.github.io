@@ -7,7 +7,7 @@ function App() {
   const supportsTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   return (
-    <div className='snap-y snap-mandatory h-screen w-screen mx:auto overflow-scroll'>
+    <div className='snap-y snap-mandatory h-screen w-screen mx:auto overflow-x-hidden'>
       {!supportsTouch && <MouseTrailingEffect />}
       <div className='absolute bottom-10 left-5'>
         <Socials />
