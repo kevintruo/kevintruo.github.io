@@ -1,6 +1,8 @@
 import * as React from "react";
 import { ThemeContext, ThemeEnum } from "../Provider";
 import { sleep } from "../../../utils/sleep";
+import Moon from "../../../static/svg/Moon";
+import Sun from "../../../static/svg/Sun";
 
 export default function Switch() {
   const themeContext = React.useContext(ThemeContext);
@@ -16,7 +18,7 @@ export default function Switch() {
 
   return (
     <div
-      className='flex items-center justify-center absolute top-0 right-0 w-8 h-8 m-1 p-1 rounded-full border border-white bg-white'
+      className='flex items-center justify-center absolute top-0 right-0 m-1 p-1 rounded-full'
       onClick={async () => {
         setFade(true);
         await sleep(500).then(() => {
@@ -28,10 +30,7 @@ export default function Switch() {
         });
       }}>
       <div className={`transition duration-700 ${fade ? "opacity-0 rotate-45" : "opacity-100"}`}>
-        <img
-          src={require(`../../../static/images/${isDark ? "moon" : "sun"}.png`)}
-          alt={`${isDark ? "Moon" : "Sun"} Icon`}
-        />
+        {theme.mode === ThemeEnum.LIGHT ? <Sun /> : <Moon />}
       </div>
     </div>
   );
