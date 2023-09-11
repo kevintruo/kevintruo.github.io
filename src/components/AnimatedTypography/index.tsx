@@ -64,7 +64,7 @@ export default function AnimatedTypography({
   return (
     <p className={className + " relative pr-2 caret-current"}>
       {display}
-      <TypingCursor className={display && "absolute bottom-0.5 right-0"} />
+      <TypingCursor className={display && "absolute bottom-0.5 -right-1"} />
       <span className='' />
     </p>
   );
