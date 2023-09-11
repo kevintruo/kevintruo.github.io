@@ -8,18 +8,18 @@ function App() {
 
   return (
     <div className='snap-y snap-mandatory h-screen w-screen mx:auto overflow-scroll'>
+      {!supportsTouch && <MouseTrailingEffect />}
       <div className='absolute bottom-10 left-5'>
         <Socials />
       </div>
-      {!supportsTouch && <MouseTrailingEffect />}
       <Section>
         <LandingPage />
       </Section>
       <Section>
-        <h1>Page Two</h1>
+        <h1>Coming Soon</h1>
       </Section>
       <Section>
-        <h1>Page Three</h1>
+        <h1>Coming Soon</h1>
       </Section>
     </div>
   );

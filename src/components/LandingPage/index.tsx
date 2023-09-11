@@ -9,7 +9,7 @@ export default function LandingPage() {
       <EyeGlassesLogo />
       <div className='animate-fade'>
         <AnimatedTypography
-          textArr={["Hi, I'm Kevin."]}
+          textArr={["Hi, I'm Kevin. "]}
           className='text-3xl font-bold text-black  dark:text-white dark:bg-black'
           repeat={true}
         />
