@@ -9,6 +9,9 @@ export const theme = {
         "50%": { opacity: 0 },
       },
     },
+    colors: {
+      "pearl-gray": "#98a4b7",
+    },
   },
 };
 
