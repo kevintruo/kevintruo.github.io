@@ -62,12 +62,10 @@ export default function AnimatedTypography({
   }, [textArr, speed, betweenDelay]);
 
   return (
-    <>
-      <p className={className + " relative pr-2 caret-current"}>
-        {display}
-        <TypingCursor className={display && "absolute bottom-0.5 right-0"} />
-        <span className='' />
-      </p>
-    </>
+    <p className={className + " relative pr-2 caret-current"}>
+      {display}
+      <TypingCursor className={display && "absolute bottom-0.5 right-0"} />
+      <span className='' />
+    </p>
   );
 }
